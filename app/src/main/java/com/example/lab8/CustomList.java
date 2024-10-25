@@ -53,4 +53,24 @@ public class CustomList extends ArrayAdapter<City> {
         cities.add(city);
     }
 
+    public boolean hasCity(City city){
+        for(int i = 0; i < this.cities.size(); i++){
+            City current = cities.get(i);
+            if((current.getCityName().equals(city.getCityName())) && (current.getProvinceName().equals(city.getProvinceName()))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void deleteCity(City city){
+        if(this.hasCity(city)){
+            this.cities.remove(city);
+        }
+    }
+
+    public int countCities(){
+        return this.cities.size();
+    }
+
 }
