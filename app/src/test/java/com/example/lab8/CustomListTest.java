@@ -1,11 +1,11 @@
 package com.example.lab8;
 
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-
-//import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -27,5 +27,15 @@ public class CustomListTest {
         //check that the count of cities increased by one
         int expectedCountAfterAdd = 1;
         assertEquals(expectedCountAfterAdd, list.getCount(), "City was not added to the list.");
+    }
+
+
+    @Test
+    public void hasCityTest() {
+        CustomList list = MockCityList();
+        list.add(new City("Edmonton", "AB"));
+        list.add(new City("Vancouver", "BC"));
+        assertTrue(list.hasCity("Edmonton"));
+        assertFalse(list.hasCity("Toronto"));
     }
 }
