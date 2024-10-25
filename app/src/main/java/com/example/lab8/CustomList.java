@@ -63,4 +63,10 @@ public class CustomList extends ArrayAdapter<City> {
         return false;
     }
 
+    public void deleteCity(City city){
+        if(this.hasCity(city)){
+            this.cities.remove(city);
+        }
+    }
+
 }
